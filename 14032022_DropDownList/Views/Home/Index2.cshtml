@@ -1,0 +1,72 @@
+﻿@using _14032022_DropDownList.Models
+@model IndexViewModal  
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index2</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>DropDownList Doldurma</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+
+                @using (Html.BeginForm())
+                {
+                    <div class="form-horizontal">
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">
+                                Ülke:
+                            </label>
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(m=>m.SecilenUlkeID,Model.Ulke, "Lütfen Seçiniz", new { @class = "form-control dropdown" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">
+                                Şehir:
+                            </label>
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(m => m.SecilenSehirID, Model.Sehir, "Lütfen Seçiniz", new { @class = "form-control dropdown" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-1">
+                                <button class="btn btn-success" type="submit">
+                                    Gönder
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-2">
+                                <div class="alert alert-info">
+                                    Seçilen Ulke ID: @Model.SecilenUlkeID
+                                    Seçilen Şehir ID: @Model.SecilenSehirID
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
